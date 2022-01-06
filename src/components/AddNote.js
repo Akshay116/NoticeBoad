@@ -2,12 +2,19 @@ import { useState } from "react";
 
 const AddNote = ({handleAddNote}) =>{
     const [noteText,setNoteText] = useState('');
+    const characterLimit = 200;
     const handleChange = (event)=>{
         //   console.log(event.target.value);
-        setNoteText(event.target.value);
+          if(characterLimit -event.target.value.length>=0)// compare conditional rendering 
+          setNoteText(event.target.value);
     };
+    // from app to here to change state Addnote
     const handleSaveClick =() =>{    // saving note/update top state 
-       handleAddNote(noteText);// from app to here to change state
+        if(noteText.trim().length>0){
+            handleAddNote(noteText);
+            setNoteText('');
+        }
+      
     }
 
     return( 
@@ -20,7 +27,7 @@ const AddNote = ({handleAddNote}) =>{
                onChange={handleChange}
                ></textarea>
          <div className="note-footer">
-            <small>200 words left</small>
+            <small>{characterLimit-noteText.length}words left</small>
             <button className="save" onClick={handleSaveClick} >Save</button>
          </div>
          

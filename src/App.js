@@ -34,8 +34,9 @@ const addNote = (text) =>{
     text: text,
     date: date.toLocaleDateString()
   }
-
-}
+  const newNotes = [...notes,newNote];//spread ... add old and new and create new array 
+   setNotes(newNotes);
+};
 
 
   return <div className="container">
