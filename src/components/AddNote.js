@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NotesList from "./NoteList";
 
 const AddNote = ({handleAddNote}) =>{
     const [noteText,setNoteText] = useState('');
@@ -15,8 +16,9 @@ const AddNote = ({handleAddNote}) =>{
             setNoteText('');
         }
       
-    }
+    };
 
+    
     return( 
            <div className="note new">
             <textarea 
