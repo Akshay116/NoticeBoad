@@ -11,11 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+max-width: 960px;
+margin-right: auto;
+margin-left:auto;
+padding-right: 15px;
+padding-left:15px;
 
-
+  
+}
+.notes-list{
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));/* grid of size try 4 (autofit)&& minmax for autofit*/
+}
 .note{
   background-color: bisque;
-  margin-bottom: 10px;
+  
   border-radius: 10px;
   padding: 1rem;
   min-height: 170px;
@@ -23,3 +35,9 @@ code {
   flex-direction: column;
   justify-content: space-between;
 }
+.note-footer{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
