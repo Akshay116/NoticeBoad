@@ -26,10 +26,20 @@ const App = () =>{
   },
 ]);
 
+const addNote = (text) =>{
+  // console.log(text); check 
+  const date = new Date();
+  const newNote = {
+    id:nanoid(),
+    text: text,
+    date: date.toLocaleDateString()
+  }
+
+}
 
 
   return <div className="container">
-    <NotesList notes={notes}/>
+    <NotesList notes={notes} handleAddNote ={addNote}/>
   </div>
 };
 export default App

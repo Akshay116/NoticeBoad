@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const AddNote = () =>{
+const AddNote = ({handleAddNote}) =>{
     const [noteText,setNoteText] = useState('');
     const handleChange = (event)=>{
         //   console.log(event.target.value);
         setNoteText(event.target.value);
     };
     const handleSaveClick =() =>{    // saving note/update top state 
-
+       handleAddNote(noteText);// from app to here to change state
     }
 
     return( 
