@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {nanoid} from  'nanoid';
 import NotesList from './components/NoteList';
 import Search from './components/Search';
 import Header from './components/Header';
+
 
 
 
@@ -32,6 +33,27 @@ const App = () =>{
  const[searchText,setSearchText] = useState('');
 
  const[darkMode,setDarkMode] = useState(false);
+
+ // to retrive form local storage
+
+ useEffect(()=>{
+   const saveDNotes = JSON.parse(localStorage.getItem('react-notes-app-data')
+   );
+   if(saveDNotes){
+     setNotes(saveDNotes);
+   }
+
+ },[])
+
+
+// to store in local storage 
+ useEffect(()=>{
+  localStorage.setItem(
+    'react-notes-app-data',
+    JSON.stringify(notes)
+    );
+
+ },[notes]);//notes change relfected here on delete to 
 
 const addNote = (text) =>{
   // console.log(text); check 
