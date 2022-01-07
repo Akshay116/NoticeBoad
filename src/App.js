@@ -46,7 +46,7 @@ const App = () =>{
  },[])
 
 
-// to store in local storage 
+// to store in local storage So that page refresh dont remove
  useEffect(()=>{
   localStorage.setItem(
     'react-notes-app-data',
